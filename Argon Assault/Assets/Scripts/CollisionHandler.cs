@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-    public ParticleSystem ExplosionParticle;
+    public ParticleSystem explosionParticle;
     public bool isTransitioning = false;
-    public GameObject[] ShipParts;
+    public GameObject[] shipParts;
 
     void OnCollisionEnter(Collision other)
     {
@@ -22,7 +22,7 @@ public class CollisionHandler : MonoBehaviour
 
     private void HideShip()
     {
-        foreach (GameObject item in ShipParts)
+        foreach (GameObject item in shipParts)
         {
             item.GetComponent<MeshRenderer>().enabled = false;   
         }
@@ -30,7 +30,7 @@ public class CollisionHandler : MonoBehaviour
 
     private void StartCrashSequence(Collision other)
     {
-        ExplosionParticle.Play();
+        explosionParticle.Play();
         GetComponent<PlayerControls>().enabled = false;
         isTransitioning = true;
         Invoke("ReloadLevel", 1);

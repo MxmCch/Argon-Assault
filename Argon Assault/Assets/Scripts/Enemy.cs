@@ -7,8 +7,8 @@ public class Enemy : MonoBehaviour
     public GameObject deathVFX;
     public GameObject hitVFX;
     public int scoreForKill = 10;
-    public int HealthPoints = 5;
-    public int Damage = 1;
+    public int healthPoints = 5;
+    public int damage = 1;
 
     ScoreBoard scoreBoard;
     GameObject parentGameObject;
@@ -20,8 +20,8 @@ public class Enemy : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        HealthPoints -= Damage;
-        if (HealthPoints <= 0)
+        healthPoints -= damage;
+        if (healthPoints <= 0)
         {
             TriggerDeath();
         }
